@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VistaWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sistema postventa</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sb-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <span class="ml-1">PostVenta</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto pt-3 pt-lg-0">
+
+                        <% if (tipoUsuario==4)
+                            {
+                        %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
+                            </a>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="Default.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Finalizado">Finalizado</a>
+                            </div>
+                        </li>
+                        <%
+                            }
+                        %>
+
+                        <% if (tipoUsuario==2)
+                            {
+                        %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
+                            </a>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Finalizado">Finalizado</a>
+                            </div>
+                        </li>
+                        <%
+                            }
+                        %>
+
+                        <% if (tipoUsuario==3)
+                            {
+                        %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
+                            </a>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Finalizado">Finalizado</a>
+                            </div>
+                        </li>
+                        <%
+                            }
+                        %>
+
+
+                    </ul>
+                    <ul class="navbar-nav pb-3 pb-lg-0">
+                        <li class="nav-item dropdown">
+                            <asp:Label CssClass="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ID="lbNombreUsuarioMenu" runat="server"></asp:Label>
+                            <%--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario
+                            </a>--%>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="LogOut.aspx">Log Out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mainContent">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="m-0 text-center text-white small">Copyright &copy; Sistema PostVenta</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+       <%--<script src="js/jquery.min.js"></script>--%>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </form>
+</body>
+</html>
